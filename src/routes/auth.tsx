@@ -141,14 +141,14 @@ function AuthPage() {
 
           <form onSubmit={onSubmit} className="space-y-4" noValidate>
             {mode === "signup" && (
-              <Field name="fullName" label="Full name" error={errors.fullName} autoComplete="name" />
+              <Field name="fullName" label="Full name" error={errors["fullName"]} autoComplete="name" />
             )}
-            <Field name="email" label="Email" type="email" error={errors.email} autoComplete="email" />
+            <Field name="email" label="Email" type="email" error={errors["email"]} autoComplete="email" />
             <Field
               name="password"
               label="Password"
               type="password"
-              error={errors.password}
+              error={errors["password"]}
               autoComplete={mode === "signup" ? "new-password" : "current-password"}
             />
             <Button type="submit" variant="ink" className="w-full" disabled={busy}>
@@ -172,7 +172,7 @@ function AuthPage() {
   );
 }
 
-function Field({ name, label, error, ...rest }: { name: string; label: string; error?: string } & React.ComponentProps<"input">) {
+function Field({ name, label, error, ...rest }: { name: string; label: string; error?: string | undefined } & React.ComponentProps<"input">) {
   return (
     <div className="space-y-1.5">
       <Label htmlFor={name}>{label}</Label>

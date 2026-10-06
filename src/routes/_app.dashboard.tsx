@@ -23,7 +23,7 @@ const steps = {
 function Dashboard() {
   const { user, primaryRole } = useAuth();
   const role = primaryRole ?? "candidate";
-  const name = (user?.user_metadata?.full_name as string | undefined)?.split(" ")[0] ?? "there";
+  const name = (user?.user_metadata?.["full_name"] as string | undefined)?.split(" ")[0] ?? "there";
 
   return (
     <div>
